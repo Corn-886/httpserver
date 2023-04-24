@@ -34,11 +34,13 @@ func rootHandler(w http.ResponseWriter, request *http.Request) {
 	for k, v := range request.Header {
 		io.WriteString(w, fmt.Sprintf("%s=%s\n", k, v))
 	}
-	io.WriteString(w, "=============================")
+	printInfo("request root ", request)
+	io.WriteString(w, "============================= \n")
 	io.WriteString(w, "calling API with version: "+version)
 
 }
 
 func printInfo(msg string, request *http.Request) {
-	log.Printf("VERSION Env: ", msg)
+	remoteIP := request.RemoteAddr
+	log.Printf("from IP %s: log: %s", remoteIP, msg)
 }

@@ -24,9 +24,9 @@ func PrintDebugLog(msg string) {
 
 }
 
-func PrintINFOLog(format string, v any) {
+func PrintINFOLog(format string, s ...string) {
 	if logging.logLevel >= 0 {
-		log.Println("INFO:"+logging.logparent+format, v)
+		log.Println("INFO:"+logging.logparent+format, s)
 	}
 
 }

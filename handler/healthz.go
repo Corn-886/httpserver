@@ -12,9 +12,9 @@ func Healthz(w http.ResponseWriter, request *http.Request) {
 }
 
 func StartUp(w http.ResponseWriter, request *http.Request) {
-	io.WriteString("---- starting up -------")
+	io.WriteString(w, "---- starting up -------")
 }
 
 func ShutingDown(w http.ResponseWriter, request *http.Request) {
-	io.WriteString("---- this application is shuting down -------")
+	io.WriteString(w, "---- this application is shuting down -------")
 }

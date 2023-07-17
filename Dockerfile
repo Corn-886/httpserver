@@ -4,12 +4,12 @@ RUN go env -w GOPROXY=https://goproxy.io,direct
 RUN go env -w GO111MODULE=on
 
 WORKDIR /build
-COPY go.mod ./
-COPY go.sum ./
-COPY httpserver.go ./
+ADD ./ /build
+
 RUN go mod download
 RUN go build -o httpserver .
 
+EXPOSE 80
 # FROM scratch
 # COPY --from=build /build/httpserver /
 ENTRYPOINT ["./httpserver"]

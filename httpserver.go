@@ -12,6 +12,8 @@ import (
 func main() {
 	http.HandleFunc("/", handler.RootHandler)
 	http.HandleFunc("/healthz", handler.Healthz)
+	http.HandleFunc("/startUp", handler.StartUp)
+	http.HandleFunc("/shutdown", handler.ShutingDown)
 
 	err := http.ListenAndServe(":80", nil)
 	if err != nil {
